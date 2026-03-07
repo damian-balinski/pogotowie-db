@@ -1,0 +1,18 @@
+INSERT INTO wyjazdy (id_wezwania, id_karetki, id_zespolu,
+                     czas_wyjazdu, czas_przybycia, czas_powrotu,
+                     miejsce_docelowe, uwagi) VALUES
+(1,  5, 5, '2025-01-10 08:20', '2025-01-10 08:35', '2025-01-10 09:45', 'USK im. WAM Łódź',       'Przekazano na OIOM'),
+(2,  3, 3, '2025-01-10 21:38', '2025-01-10 21:55', '2025-01-10 23:10', 'SOR Szpital Biegańskiego','Dwóch poszkodowanych'),
+(3,  6, 6, '2025-01-11 09:08', '2025-01-11 09:22', '2025-01-11 10:40', 'USK im. WAM Łódź',       'Udar niedokrwienny'),
+(4,  1, 1, '2025-01-11 14:52', '2025-01-11 15:05', '2025-01-11 16:00', 'SOR Szpital Kopernika',  NULL),
+(5,  2, 2, '2025-01-11 22:18', '2025-01-11 22:30', '2025-01-11 23:20', 'SOR Szpital Biegańskiego',NULL),
+(6,  5, 5, '2025-01-12 08:02', '2025-01-12 08:15', '2025-01-12 09:00', 'USK im. WAM Łódź',       'Niemowlę, krytyczny stan'),
+(7,  4, 4, '2025-01-12 11:28', '2025-01-12 11:40', '2025-01-12 12:30', 'SOR Szpital Kopernika',  NULL),
+(8,  3, 3, '2025-01-12 16:08', '2025-01-12 16:25', '2025-01-12 17:40', 'SOR Szpital Biegańskiego',NULL),
+(9,  6, 6, '2025-01-13 08:38', '2025-01-13 08:52', '2025-01-13 10:15', 'USK im. WAM Łódź',       'Politrauma'),
+(10, 2, 2, '2025-01-13 13:22', '2025-01-13 13:38', '2025-01-13 14:50', 'SOR Szpital Kopernika',  'Płukanie żołądka w SOR'),
+(11, 1, 1, '2025-01-13 18:08', '2025-01-13 18:20', '2025-01-13 19:00', 'Miejsce zdarzenia',       'Brak transportu – odmowa'),
+(13, 4, 4, '2025-01-14 11:38', '2025-01-14 11:50', '2025-01-14 12:45', 'SOR Szpital Biegańskiego',NULL),
+(14, 1, 1, '2025-01-14 15:08', '2025-01-14 15:20', '2025-01-14 16:00', 'Miejsce zdarzenia',       'Zatamowano krwotok'),
+(15, 6, 5, '2025-01-15 08:08', '2025-01-15 08:22', '2025-01-15 09:30', 'USK im. WAM Łódź',       'RKO wdrożone w karetce'),
+(16, 2, 2, '2025-01-15 10:28', '2025-01-15 10:42', '2025-01-15 11:30', 'SOR Szpital Kopernika',  'Podano glukozę i.v.');

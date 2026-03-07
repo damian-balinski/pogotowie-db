@@ -1,0 +1,16 @@
+INSERT INTO pracownicy (imie, nazwisko, pesel, stanowisko, nr_uprawnien) VALUES
+('Piotr',    'Adamski',    '85010112345', 'ratownik_medyczny', 'RM/001/2015'),
+('Monika',   'Baran',      '90020223456', 'ratownik_medyczny', 'RM/002/2016'),
+('Krzysztof','Czajka',     '78030334567', 'lekarz',            'LEK/001/2010'),
+('Ewa',      'Dąbrowska',  '92040445678', 'ratownik_medyczny', 'RM/003/2018'),
+('Rafał',    'Ewald',      '88050556789', 'ratownik_medyczny', 'RM/004/2017'),
+('Sylwia',   'Frankowska', '95060667890', 'ratownik_medyczny', 'RM/005/2019'),
+('Andrzej',  'Górski',     '82070778901', 'lekarz',            'LEK/002/2012'),
+('Beata',    'Hajduk',     '91080889012', 'ratownik_medyczny', 'RM/006/2018'),
+('Łukasz',   'Iwan',       '87090990123', 'ratownik_medyczny', 'RM/007/2016'),
+('Natalia',  'Jabłońska',  '93100101234', 'ratownik_medyczny', 'RM/008/2020'),
+('Michał',   'Kasprzak',   '80111112345', 'lekarz',            'LEK/003/2008'),
+('Paulina',  'Lewandowska','96120223456', 'ratownik_medyczny', 'RM/009/2021'),
+('Grzegorz', 'Malinowski', '75010134567', 'kierowca',          'KIR/001/2005'),
+('Dorota',   'Nowicka',    '89020245678', 'kierowca',          'KIR/002/2010'),
+('Bartosz',  'Olszewski',  '94030356789', 'kierowca',          'KIR/003/2019');
