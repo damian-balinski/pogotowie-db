@@ -8,7 +8,7 @@ REVOKE CREATE ON SCHEMA public FROM PUBLIC;
 -- Może: czytać dane operacyjne + tworzyć nowe wezwania
 -- Nie może: modyfikować danych medycznych, pacjentów, wyjazdów
 
-
+DROP OWNED BY dyspozytor;
 DROP ROLE IF EXISTS dyspozytor;
 
 CREATE ROLE dyspozytor
@@ -40,12 +40,22 @@ GRANT USAGE ON SEQUENCE wezwania_id_wezwania_seq TO dyspozytor;
 -- Może aktualizować wyłącznie status wezwania (nie inne kolumny)
 GRANT UPDATE (status) ON wezwania TO dyspozytor;
 
+-- Może tworzyć wpis wyjazdu (przypisanie karetki i zespołu)
+GRANT INSERT ON wyjazdy TO dyspozytor;
+
+-- Sekwencja potrzebna do INSERT w wyjazdy
+GRANT USAGE ON SEQUENCE wyjazdy_id_wyjazdu_seq TO dyspozytor;
+
+-- Może aktualizować wyłącznie kolumny przypisania w wyjazdy
+GRANT UPDATE (id_karetki, id_zespolu) ON wyjazdy TO dyspozytor;
+
 
 
 -- ROLA: ratownik (ratownik medyczny / lekarz w karetce (tablet))
 -- Może: czytać dane + uzupełniać wyjazdy i świadczenia
 -- Nie może: usuwać danych ani zarządzać użytkownikami
 
+DROP OWNED BY ratownik;
 DROP ROLE IF EXISTS ratownik;
 
 CREATE ROLE ratownik
@@ -91,6 +101,7 @@ GRANT USAGE ON SEQUENCE udzielona_pomoc_id_seq     TO ratownik;
 -- Może: pełna administracja bazą i użytkownikami
 -- SUPERUSER omija wszystkie kontrole uprawnień
 
+DROP OWNED BY admin_pogotowie;
 DROP ROLE IF EXISTS admin_pogotowie;
 
 CREATE ROLE admin_pogotowie
