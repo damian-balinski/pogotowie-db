@@ -1,0 +1,12 @@
+services:
+  postgres:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: pogotowie_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./init_roles.sql:/docker-entrypoint-initdb.d/00_roles.sql
+      - ./pogotowie_db_backup.sql:/docker-entrypoint-initdb.d/01_backup.sql
