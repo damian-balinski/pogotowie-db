@@ -19,9 +19,9 @@ of an emergency medical station.
 ## Database Structure
 
 - 14 tables (13 operational + audit log)
-- 3 triggers — ambulance status automation, status change logging, team size validation
-- 3 views — dispatch details, patient history, dispatcher workload
-- 3 roles — `dyspozytor`, `ratownik`, `admin_pogotowie`
+- 3 triggers - ambulance status automation, status change logging, team size validation
+- 3 views - dispatch details, patient history, dispatcher workload
+- 3 roles - `dyspozytor`, `ratownik`, `admin_pogotowie`
 - 8 SQL queries covering core operational use cases
 
 ## Running Locally with Docker
@@ -35,6 +35,16 @@ of an emergency medical station.
     - Host: localhost | Port: 5433
     - Database: pogotowie_db
     - User: postgres | Password: postgres
+
+## Resetting the Database
+
+To start fresh with a clean database (re-runs all init scripts):
+
+```bash
+docker-compose down -v && docker-compose up
+```
+
+The `-v` flag removes the persistent volume. All data will be restored from the backup file.
 
 ## Author
 Damian Baliński - 123702 

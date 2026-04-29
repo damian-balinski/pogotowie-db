@@ -29,6 +29,16 @@ Docker Desktop: https://www.docker.com/products/docker-desktop/
    - User:     postgres
    - Password: postgres
 
+## Reset bazy danych
+
+Aby przywrócić bazę do stanu początkowego (ponownie uruchamia skrypty inicjalizacyjne):
+
+```bash
+docker-compose down -v && docker-compose up
+```
+
+Flaga `-v` usuwa wolumin z danymi. Baza zostanie odtworzona z pliku backup.
+
 ## Zawartość bazy
 - 14 tabel (13 operacyjnych + log_wezwan)
 - Dane testowe (20 wezwań, 15 wyjazdów, 10 pacjentów i inne)
