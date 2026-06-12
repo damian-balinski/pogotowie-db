@@ -10,7 +10,7 @@ services:
     volumes:
       - ./init_roles.sql:/docker-entrypoint-initdb.d/00_roles.sql
       - ./pogotowie_db_backup.sql:/docker-entrypoint-initdb.d/01_backup.sql
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql
 
 volumes:
   postgres_data:
