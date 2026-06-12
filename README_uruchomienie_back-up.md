@@ -5,6 +5,7 @@ Docker Desktop: https://www.docker.com/products/docker-desktop/
 
 ## Pliki w repozytorium
 - `docker-compose.yml`       — konfiguracja kontenera
+- `.env`                     — zmienne środowiskowe (dane logowania)
 - `init_roles.sql`           — definicje ról użytkowników (wykonywany jako pierwszy)
 - `pogotowie_db_backup.sql`  — pełny backup bazy danych (wykonywany jako drugi)
 
@@ -17,10 +18,11 @@ Docker Desktop: https://www.docker.com/products/docker-desktop/
    git clone https://github.com/damian-balinski/pogotowie-db.git
 
 3. Otwórz terminal w folderze projektu i wpisz:
-   docker-compose up
+   docker-compose up -d
 
-4. Poczekaj na komunikat:
-   database system is ready to accept connections
+4. Poczekaj kilka sekund, a następnie sprawdź czy baza działa:
+   docker-compose logs postgres | tail -5
+   (szukaj linii: "database system is ready to accept connections")
 
 5. Połącz się z bazą przez DBeaver lub pgAdmin:
    - Host:     localhost
@@ -29,15 +31,31 @@ Docker Desktop: https://www.docker.com/products/docker-desktop/
    - User:     postgres
    - Password: postgres
 
+## Podgląd tabel przez terminal
+
+Sprawdź listę tabel:
+
+    docker-compose exec postgres psql -U postgres -d pogotowie_db -c "\dt"
+
+Sprawdź liczbę rekordów w wybranej tabeli:
+
+    docker-compose exec postgres psql -U postgres -d pogotowie_db -c "SELECT COUNT(*) FROM wezwania;"
+
+Wyświetl przykładowe dane:
+
+    docker-compose exec postgres psql -U postgres -d pogotowie_db -c "SELECT * FROM wezwania LIMIT 5;"
+
+Wejście do interaktywnej konsoli SQL:
+
+    docker-compose exec postgres psql -U postgres -d pogotowie_db
+
 ## Reset bazy danych
 
 Aby przywrócić bazę do stanu początkowego (ponownie uruchamia skrypty inicjalizacyjne):
 
-```bash
-docker-compose down -v && docker-compose up
-```
+    docker-compose down -v && docker-compose up -d
 
-Flaga `-v` usuwa wolumin z danymi. Baza zostanie odtworzona z pliku backup.
+Flaga `-v` usuwa wolumin z danymi. Baza zostanie automatycznie odtworzona z pliku backup.
 
 ## Zawartość bazy
 - 14 tabel (13 operacyjnych + log_wezwan)
@@ -47,5 +65,5 @@ Flaga `-v` usuwa wolumin z danymi. Baza zostanie odtworzona z pliku backup.
 - 3 role użytkowników (dyspozytor, ratownik, admin_pogotowie)
 
 ## Zatrzymanie bazy
-W terminalu: Ctrl+C, następnie:
-docker-compose down -v
+
+    docker-compose down
